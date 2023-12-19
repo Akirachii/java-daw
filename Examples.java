@@ -1,4 +1,5 @@
-public class EjFibonacci{
+public class Examples{
+    
     public static int fibonacci(int N) {
         int res;
         if (N == 0) {
@@ -12,6 +13,5 @@ public class EjFibonacci{
     }
     public static void main (String[] args){
         System.out.println(fibonacci(Integer.valueOf(args[0])));
-        System.out.println(fibonacci(Integer.valueOf(args[1])));
     }
 }
