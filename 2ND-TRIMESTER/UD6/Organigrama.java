@@ -57,48 +57,12 @@ public class Organigrama{
         };
 
         System.out.print("Introduce el código de empleado: ");
-        String codigoEmpleadoBuscado = sc.nextLine();
+        String codigoEmpleado = sc.nextLine();
         System.out.print("Introduce el nivel de jefe: ");
         int nivelJefeBuscado = sc.nextInt();
 
 
-        String[] resultado = obtenerJefe(trabajadores, codigoEmpleadoBuscado, nivelJefeBuscado, null);
-        if (resultado == null) {
-            System.out.println("No se encontró información para el código de empleado proporcionado.");
-        } else {
-            String codigoEmpleado = resultado[0];
-            String nombreEmpleado = resultado[1];
-            String codigoJefe = resultado[3];
-
-            // Obtener el nombre del jefe
-            String[] jefe = obtenerEmpleadoPorCodigo(trabajadores, codigoJefe);
-            String nombreJefe = (jefe != null) ? jefe[1] : "Desconocido";
-
-            System.out.println("Nombre del empleado: " + nombreEmpleado);
-            System.out.println("Código del empleado del jefe: " + codigoJefe);
-            System.out.println("Nombre del jefe: " + nombreJefe);
-        }
     }
-
-    private static String[] obtenerJefe(String[][] organigrama, String codigoEmpleado, int nivelJefe, String[] jefeActual) {
-        String[] empleado = obtenerEmpleadoPorCodigo(organigrama, codigoEmpleado);
-
-        if (empleado == null || Integer.parseInt(empleado[2]) <= nivelJefe) {
-            return jefeActual;
-        }
-
-        return obtenerJefe(organigrama, empleado[3], nivelJefe, empleado);
-    }
-
-    private static String[] obtenerEmpleadoPorCodigo(String[][] organigrama, String codigoEmpleado) {
-        for (String[] fila : organigrama) {
-            if (fila != null && fila.length > 0 && fila[0].equals(codigoEmpleado)) {
-                return fila;
-            }
-        }
-        return null;
-    }
-
 
 
 }
