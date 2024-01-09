@@ -3,13 +3,9 @@ import java.util.Arrays;
 import lib.QuickSort;
 
 public class OrdenaVector {
-
     public static void main(String[] args) {
-
         int num = Integer.valueOf(args[0]);
-
         int[] list = new int[num];
-
         for (int i = 0; i < num; i++)
             list[i] = (int) (Math.random() * 100);
 

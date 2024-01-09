@@ -1,10 +1,10 @@
 package lib;
 public class QuickSort {
     public static void quickSort(int[] ArrayToSort) {       //  This method wont return nothing, only will make sure the imput is not null/0
-        if  ArrayToSort == null || ArrayToSort.length == 0) {       //  This if will be the one to make sure the entry is not null/0
+        if  (ArrayToSort == null || ArrayToSort.length == 0) {       //  This if will be the one to make sure the entry is not null/0
             return;     //  If there is no input or is 0, it will return without more actions
         }
-        quickSort ArrayToSort, 0, ArrayToSort.length - 1);      //  This line is a call for the algorithm to be performance form start (0) to end (-1)
+        quickSort (ArrayToSort, 0, ArrayToSort.length - 1);      //  This line is a call for the algorithm to be performance form start (0) to end (-1)
     }
 
     private static void quickSort(int[] ArrayToSort, int low, int high) {       //  This method wont return nothing, but will indicate the ArrayToSort and set two numbers, high and low
