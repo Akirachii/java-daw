@@ -8,7 +8,19 @@ import java.util.Stack;
 import java.util.Iterator;
 import java.util.Scanner;
 public class CalcRPN {
-    public static void main(String[] args) { 
+    public static boolean exited(String entrada) {
+        if (entrada == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(entrada);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+    
+    public static void main(String[] args) {        //  Declare the main
         Stack<Integer> NumerosPila = new Stack<Integer>();
         boolean exited = false;
         Scanner sc = new Scanner(System.in);
@@ -16,18 +28,26 @@ public class CalcRPN {
         while (exited = false);{
             //System.out.println(NumerosPila.peek());
             if (!NumerosPila.empty()){
-                System.out.println(NumerosPila.peek());
+                System.out.println(NumerosPila.peek());     //  We print the "Pila"
                 
-                Integer entrada = sc.nextInt();
+                Integer entrada = sc.nextInt();     //  State the entry as an int
 
                 NumerosPila.push(entrada);
 
             }else{
                 System.out.println("The queue is empty, add numbers");
                 Integer choose = sc.nextInt();
-
                 
+
+
             }
         }
+        
+
+
+
+
+
+
     }
 }
