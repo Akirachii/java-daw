@@ -12,10 +12,10 @@ public class TurnOMatik {
 
         while (!exited){
             
-            System.out.println("1, Nuevo cliente ha entrado");     //  
-            System.out.println("2, Atender al siguiente cliente"); //
-            System.out.println("3, Mostrar cola actual");          //
-            System.out.println("0, Salir");                        //
+            System.out.println("1, New client came in");      //  
+            System.out.println("2, Serve the next customer"); //
+            System.out.println("3, Show current queue");      //
+            System.out.println("0, Exit");                    //
             String answ=sc.nextLine();
             
             if (answ.equals("0")){
@@ -26,15 +26,15 @@ public class TurnOMatik {
                 clientes.add(NewClint);
             }else if (answ.equals("2")){
                 String first = clientes.poll();
-                System.out.println("Cliente atendido: " + first);
-                System.out.println("Cola actual: " + clientes);
+                System.out.println("Customer served: " + first);
+                System.out.println("Current queue: " + clientes);
             }else if (answ.equals("3")){
-                System.out.println("Mostrar cola actual:");
+                System.out.println("Show current queue:");
                 Iterator<String> iterator = clientes.iterator();
                 int position = 1;
 
                 while (iterator.hasNext()) {
-                    System.out.println("Cliente " + position + ": " + iterator.next());
+                    System.out.println("Client " + position + ": " + iterator.next());
                     position++;
                 }
             }else{

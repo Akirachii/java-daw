@@ -12,7 +12,8 @@ The repository is organized as follows:
 ┃ ┣ Helps   
 ┣ 📂 2ND-TRIMESTER  
 ┃ ┣ 📂 AceptaElReto [contest]  
-┃ ┣ 📂 UD6  
+┃ ┣ 📂 UD6
+┃ ┣ 📂 UD7  
 ┃ ┗    
 ┣ 📂 3RD-TRIMESTER    
 ┃ ┗ /Nothing yet/   
