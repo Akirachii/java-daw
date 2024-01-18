@@ -1,53 +1,53 @@
-//Desarrolla una calculadora RPN que sume, reste, multiplique y divida.
-//Debe tener niveles de pila ilimitados y creados dinámicamente en cualquier momento.
-//Debe pintar la pila cada vez que cambie.
-//Al introducir “q” deberá salir del programa.
-
-
+// Pau Gra<3
 import java.util.Stack;
-import java.util.Iterator;
 import java.util.Scanner;
 public class CalcRPN {
-    public static boolean exited(String entrada) {
-        if (entrada == null) {
-            return false;
-        }
-        try {
-            double d = Double.parseDouble(entrada);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
     
-    public static void main(String[] args) {        //  Declare the main
-        Stack<Integer> NumerosPila = new Stack<Integer>();
+    public static void main(String[] args) {
+        Stack<Double> numb = new Stack<Double>();
         boolean exited = false;
         Scanner sc = new Scanner(System.in);
 
-        while (exited = false);{
-            //System.out.println(NumerosPila.peek());
-            if (!NumerosPila.empty()){
-                System.out.println(NumerosPila.peek());     //  We print the "Pila"
-                
-                Integer entrada = sc.nextInt();     //  State the entry as an int
-
-                NumerosPila.push(entrada);
-
+        while (!exited){
+            if (sc.hasNextDouble()){
+                numb.push(sc.nextDouble());
+                System.out.println("else");
+            
             }else{
-                System.out.println("The queue is empty, add numbers");
-                Integer choose = sc.nextInt();
-                
+                String operator = sc.next();
+                if (operator.equals("q")){
+                    exited=true;
+                    System.out.println("Exited");
+                    break;
+                }else if (numb.size() < 2){
+                    System.out.println("Missing operators");
+                    continue;
+                }
+                double operator2 = numb.pop();
+                double operator1 = numb.pop();
+                double finished;
 
+                switch (operator) {
+                    case "+":
+                        finished=operator1 + operator2;
+                        break;
+                    case "-":
+                        finished=operator1 - operator2;
+                        break;
+                    case "*":
+                        finished=operator1 * operator2;
+                        break;
+                    case "/":
+                        finished=operator1 / operator2;
+                        break;
+                    default:
+                        System.out.print("Wrong input");
+                        return;
 
+                }
+                numb.push(finished);
+                System.out.println("="+finished);
             }
         }
-        
-
-
-
-
-
-
     }
 }
