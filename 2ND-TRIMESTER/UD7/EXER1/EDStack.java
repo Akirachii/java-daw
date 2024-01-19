@@ -1,3 +1,4 @@
+package EXER1;
 import java.util.Stack;
 import java.util.Iterator;
 public class EDStack {
