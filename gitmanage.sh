@@ -8,6 +8,7 @@ pwd
 	echo "-    1. Exit    -"
 	echo "- 2. Upload all -"
 	echo "- 3. Download   -"
+	echo "- 4. Status     -"
 	echo "-----------------"
 
 	read -p "Wich is the desired input? " answ
@@ -25,6 +26,9 @@ pwd
 		3)
 			cd $ruta
 			git pull 
+		;;
+		4)
+			git status
 		;;
 		*)
 			echo "Invalid input"
