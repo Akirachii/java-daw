@@ -24,9 +24,6 @@ public class Pizza {
     }
 
     //geters
-    public String getTamanio(){
-        return this.tamanio;
-    }
     public static int getTotalServidas(){
         return TotalServidas;
     }
