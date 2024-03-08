@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -44,10 +46,35 @@ public class Explicacion {
     }
 
 
+    public static void Reader(String nombre){
 
+        try {
+            File f = new File(nombre);
+            FileReader fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+            String linea = br.readLine(); //fr.read(), para un caracter
+            System.out.println();
+            while(linea != null) {
+                System.out.println(linea);
+                linea = br.readLine();
+            }
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     public static void main(String[] args) {
-        SiExisteDir();
+        try {
+            Reader(args[0]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("No hay argumentos");
+            //e.printStackTrace
+        }
+
     }
 
     
