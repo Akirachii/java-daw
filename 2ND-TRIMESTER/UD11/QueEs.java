@@ -16,7 +16,7 @@ public class QueEs {
                         System.out.println("Directorio: ");
                     }
                     f.getAbsolutePath();
-                    f.getTotalSpace();
+                    f.length();
 
                     if (f.canRead()){
                         System.out.println("Puede Leer " + f.getName());
