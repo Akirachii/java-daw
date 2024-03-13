@@ -13,29 +13,28 @@ public class ValidarPass {
     static Scanner sc = new Scanner(System.in);
     static String file = "pass.txt";
     static File P = new File(file);
+
     public static void Guardar() {
          
         try {
             
-            P.createNewFile();
             if (P.exists()){                
-                FileWriter fw = new FileWriter(file);
+                FileWriter fw = new FileWriter(file, true);
                 System.out.println("Usuario: ");
                 String user = sc.next();
                 System.out.println("Contraseña: ");
                 String passwd = sc.next();
 
                 fw.write(user + ":" + passwd + "\n");
-
-            } else System.out.println("Fichero no existe");
+                fw.close();
+            } else System.out.println("Fichero no existe --- Creando"); P.createNewFile();
                 
             
         } catch(Exception e) {
-            System.err.println("Error leyendo/escribiendo fichero");
+            System.err.println("Error leyendo/escribiendo fichero"); 
         }
 
     }
-
     public static void Validar() {
         try {
             if (P.exists()){     
@@ -47,12 +46,31 @@ public class ValidarPass {
                 String passwd = sc.next();
 
 
+                String linea;
+                boolean valido = false;
+                while ((linea = fr.readLine())!= null){
+                    String partes[] = linea.split(":");
+                    String user2=partes[0];
+                    String passw=partes[1];
+
+                    if (user.equals(user2) && passwd.equals(passw)) {
+                        valido = true;
+                    }
+                    
+                }
+                if (valido) {
+                    System.out.println("Credenciales válidas");
+                } else {
+                    System.out.println("Credenciales inválidas");
+                }
+                fr.close();
             } else System.out.println("Fichero no existe");
             
         } catch (Exception e) {
-            // TODO: handle exception
+            System.out.println("algun error");
         }
     }
+    
 
     public static void main(String[] args) {
         boolean exit = false;
@@ -65,7 +83,7 @@ public class ValidarPass {
                         Guardar();
                         break;
                     case 2:
-
+                        Validar();
                         break;
                     case 0:
                         exit=true;
