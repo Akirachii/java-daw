@@ -1,11 +1,11 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Explicacion {
- 
     public static void crearFichero(){
         try{
             File file = new File("fichero.txt");
@@ -30,7 +30,6 @@ public class Explicacion {
     }
 
     public static void SiExisteDir(){
-
         String ruta;
         Scanner sc = new Scanner(System.in);
         System.out.print("Ruta: ");
@@ -45,9 +44,7 @@ public class Explicacion {
         }
     }
 
-
     public static void Reader(String nombre){
-
         try {
             File f = new File(nombre);
             FileReader fr = new FileReader(f);
@@ -60,11 +57,11 @@ public class Explicacion {
             }
             br.close();
             fr.close();
+        } catch (FileNotFoundException a){
+            System.out.println("No es un fichero");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public static void main(String[] args) {
@@ -72,10 +69,6 @@ public class Explicacion {
             Reader(args[0]);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("No hay argumentos");
-            //e.printStackTrace
         }
-
-    }
-
-    
- }
+    }    
+}
