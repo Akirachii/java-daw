@@ -47,21 +47,28 @@ public class ValidarPass {
 
 
                 String linea;
-                boolean valido = false;
+                boolean validou = false;
+                boolean validoc = false;
                 while ((linea = fr.readLine())!= null){
                     String partes[] = linea.split(":");
                     String user2=partes[0];
                     String passw=partes[1];
 
                     if (user.equals(user2) && passwd.equals(passw)) {
-                        valido = true;
+                        validou = true;
+                        validoc= true;
+                    } else if (user.equals(user2) ){
+                        validou= true;
+                        
                     }
                     
                 }
-                if (valido) {
+                if (validou && validoc) {
                     System.out.println("Credenciales válidas");
+                } else if (validou && !(validoc)){
+                    System.out.println("Usuario existente, contraseña incorrecta");
                 } else {
-                    System.out.println("Credenciales inválidas");
+                    System.out.println("Credenciales invalidas");
                 }
                 fr.close();
             } else System.out.println("Fichero no existe");
@@ -93,7 +100,7 @@ public class ValidarPass {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("No es una opcion requerida");
-        
+                sc.nextLine();
             }
 
 
