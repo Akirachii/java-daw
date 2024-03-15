@@ -4,11 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
-import java.util.Scanner;
+
 
 
 
@@ -39,7 +38,8 @@ public class Galaxias {
                     //System.out.println(a);
                     FileOutputStream xs = new FileOutputStream(x, true);
                     ObjectOutputStream oos = new ObjectOutputStream(xs);
-                    oos.writeObject(a);
+                    oos.writeObject((Galaxia)a);
+                    System.out.println(a);
                     oos.close();
                     xs.close();
 
@@ -50,7 +50,7 @@ public class Galaxias {
 
         } catch (Exception e) {
             // TODO: handle exception
-        }
+        } 
 
     }
 
