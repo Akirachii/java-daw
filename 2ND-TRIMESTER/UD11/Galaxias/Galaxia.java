@@ -1,4 +1,3 @@
-package Galaxias;
 
 import java.io.Serializable;
 
@@ -9,16 +8,18 @@ public class Galaxia implements Serializable {
     private String dec;
     private String mag;
 
-
     public Galaxia(String object, String con, String ra, String dec, String mag) {
-        this.object = object;
-        this.con = con;
-        this.ra =ra;
-        this.dec=dec;
-        this.mag=mag;    
+        this.object = object.replaceAll("\\s", "").replaceAll("\"","");
+        this.con = con.replaceAll("\"","");
+        this.ra =ra.replaceAll("\"","");
+        this.dec=dec.replaceAll("\"","");
+        this.mag=mag.replaceAll("\"","");   
     }
-    public void DatosGalaxia() {
-        System.out.println(object + " , " + con + " , "+ " , " + ra + " , "+ " , " + dec + " , "+ " , " + mag);
+
+
+    
+    public String toString() {
+        return (object + " , " + con + " , " + ra + " , " + dec + " , " + mag);
     }
 
 
