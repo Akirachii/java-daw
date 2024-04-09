@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class LeerGalaxia {
+public class LeerGalaxia7 {
     
     public static void CallGalaxy(String search, int selected ) throws IOException{
         File x = new File("SAC.bin");
